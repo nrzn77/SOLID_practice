@@ -52,5 +52,7 @@ public abstract class Person {
         this.age = age;
     }
 
-    public abstract void display();
+    public String toString(){
+        return firstName + " " + lastName + "\nAge: " + age + "\nEmail: " + email;
+    };
 }
