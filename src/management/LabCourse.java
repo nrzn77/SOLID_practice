@@ -13,4 +13,9 @@ public class LabCourse extends Course {
     public void setLabNo(String labNo) {
         this.labNo = labNo;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nLab No.: " + getLabNo();
+    }
 }

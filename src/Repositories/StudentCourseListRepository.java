@@ -1,5 +1,7 @@
 package Repositories;
 
+import Controllers.CourseController;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,19 +17,22 @@ record Pair<L, R>(L left, R right) {
     }
 }
 
-public class StudentCourseListRepository {
-    private final List<Pair<String, String>> studentCourseList;
+public class StudentCourseListRepository implements StudentCourseRepository {
+    private static final List<Pair<String, String>> studentCourseList = new ArrayList<>();
+    private final CourseController courseController = new CourseController();
 
-    public StudentCourseListRepository() {
-        studentCourseList = new ArrayList<>();
-    }
 
     public void enrollStudentToCourse(String studentId, String courseId) {
+
+        if(!courseController.courseExists(courseId)){
+            System.out.println("Course does not exist");
+            return;
+        }
         studentCourseList.add(
                 new Pair<String, String>(courseId, studentId)
         );
     }
-    public void unenrollStudentToCourse(String studentId, String courseId) {
+    public void unenrollStudentFromCourse(String studentId, String courseId) {
         studentCourseList.remove(
                 new Pair<String, String>(courseId, studentId)
         );
