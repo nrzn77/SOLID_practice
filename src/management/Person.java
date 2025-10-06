@@ -1,5 +1,7 @@
 package management;
 
+import utilities.EmailVerifier;
+
 public abstract class Person {
     private String firstName;
     private String lastName;
@@ -9,7 +11,7 @@ public abstract class Person {
     public Person(String firstName, String lastName, String email, String age) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        setEmail(email);
         this.age = age;
     }
 
@@ -34,7 +36,12 @@ public abstract class Person {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if(EmailVerifier.verifyEmail(email)){
+            this.email = email;
+        }
+        else {
+            this.email = null;
+        }
     }
 
     public String getAge() {
