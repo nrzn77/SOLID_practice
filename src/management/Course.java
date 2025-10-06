@@ -26,4 +26,8 @@ public class Course {
         this.name = name;
     }
 
+    public String toString(){
+        return getName() + ": " + getCourseID();
+    }
+
 }

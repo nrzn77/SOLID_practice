@@ -1,3 +1,4 @@
+import Repositories.StudentCourseListRepository;
 import management.*;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -12,6 +13,15 @@ public class Main {
         System.out.println(S1);
         System.out.println(S2);
         System.out.println(T1);
+
+        System.out.println(Physics);
+
+        StudentCourseListRepository studentCourseListRepository = new StudentCourseListRepository();
+        studentCourseListRepository.enrollStudentToCourse(S1.getStudentID(), Physics.getCourseID());
+        studentCourseListRepository.enrollStudentToCourse(S1.getStudentID(), Chemistry.getCourseID());
+        studentCourseListRepository.unenrollStudentToCourse(S1.getStudentID(), Chemistry.getCourseID());
+
+        System.out.println(studentCourseListRepository.getCoursesForStudent(S1.getStudentID()));
 
     }
 }
