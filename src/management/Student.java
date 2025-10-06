@@ -1,32 +1,34 @@
 package management;
 
 public class Student extends Person {
-    private String StudentID;
-    private String Courses;
+    private String studentID;
+    private String courses;
 
-    public Student(String firstName, String lastName, String email, String age, String StudentID, String Courses ){
+    public Student(String firstName, String lastName, String email, String age, String studentID, String courses) {
         super(firstName, lastName, email, age);
-        this.StudentID = StudentID;
-        this.Courses = Courses;
+        this.studentID = studentID;
+        this.courses = courses;
     }
 
     public String getStudentID() {
-        return StudentID;
+        return studentID;
     }
+
     public void setStudentID(String StudentID) {
-        this.StudentID = StudentID;
+        this.studentID = StudentID;
     }
 
     public String getCourses() {
-        return Courses;
+        return courses;
     }
+
     public void setCourses(String Courses) {
-        this.Courses = Courses;
+        this.courses = Courses;
     }
 
     @Override
     public void display() {
-        System.out.println("Student ID: " + getStudentID()+"  Name: " + getFirstName()+" " + getLastName());
+        System.out.println("Student ID: " + getStudentID() + "  Name: " + getFirstName() + " " + getLastName());
         System.out.println("Courses: " + getCourses());
     }
 

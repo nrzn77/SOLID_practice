@@ -2,18 +2,18 @@ package management;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Managements {
-    private List<Person> People;
+public class Management {
+    private final List<Person> people;
 
-    public Managements() {
-        People = new ArrayList<>();
+    public Management() {
+        people = new ArrayList<>();
     }
     public void addPerson(Person person) {
-        People.add(person);
+        people.add(person);
     }
 
     public void ShowAllPeople() {
-        for (Person person : People) {
+        for (Person person : people) {
             person.display();
         }
     }
